@@ -47,7 +47,7 @@ class ChatGPT:
 
 client = httpx.AsyncClient()
 app = FastAPI()
-chatgpt = ChatGPT()
+#chatgpt = ChatGPT()
 
 @app.get("/") # 指定 api 路徑 (get方法)
 async def hello():
