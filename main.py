@@ -45,7 +45,11 @@ class ChatGPT:
         return response['choices'][0]['message']['content'].strip()
 
 chatgpt = ChatGPT()
-  
+
+@app.get("/") # 指定 api 路徑 (get方法)
+async def hello():
+	return "Hello World from Flask in a uWSGI Nginx Docker container with \
+	     Python 3.8 (from the example template)"
     
 @app.post("/callback/")
 async def webhook(req: Request):
