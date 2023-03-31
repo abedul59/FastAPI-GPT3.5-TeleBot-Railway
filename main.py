@@ -1,19 +1,19 @@
 import os
 #import openai
 
-import httpx
+#import httpx
 from fastapi import FastAPI, Request
 
 
-TOKEN = str(os.getenv("TELEGRAM_BOT_TOKEN"))
-BASE_URL = f"https://api.telegram.org/bot{TOKEN}"
+#TOKEN = str(os.getenv("TELEGRAM_BOT_TOKEN"))
+#BASE_URL = f"https://api.telegram.org/bot{TOKEN}"
 
 
 
 
 
 #openai.api_key = os.getenv("OPENAI_API_KEY")
-conversation = []
+#conversation = []
 '''
 class ChatGPT:  
     
@@ -45,7 +45,7 @@ class ChatGPT:
         return response['choices'][0]['message']['content'].strip()
 	'''
 
-client = httpx.AsyncClient()
+#client = httpx.AsyncClient()
 app = FastAPI()
 #chatgpt = ChatGPT()
 
