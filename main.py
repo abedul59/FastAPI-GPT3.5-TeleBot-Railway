@@ -1,5 +1,5 @@
 import os
-import openai
+#import openai
 
 import httpx
 from fastapi import FastAPI, Request
@@ -12,9 +12,9 @@ BASE_URL = f"https://api.telegram.org/bot{TOKEN}"
 
 
 
-openai.api_key = os.getenv("OPENAI_API_KEY")
+#openai.api_key = os.getenv("OPENAI_API_KEY")
 conversation = []
-
+'''
 class ChatGPT:  
     
 
@@ -43,6 +43,7 @@ class ChatGPT:
 
         
         return response['choices'][0]['message']['content'].strip()
+	'''
 
 client = httpx.AsyncClient()
 app = FastAPI()
@@ -52,7 +53,7 @@ chatgpt = ChatGPT()
 async def hello():
 	return "Hello World from Flask in a uWSGI Nginx Docker container with \
 	     Python 3.8 (from the example template)"
-    
+'''  
 @app.post("/callback")
 async def callback(req: Request):
     data = await req.json()
@@ -63,3 +64,4 @@ async def callback(req: Request):
     await client.get(f"{BASE_URL}/sendMessage?chat_id={chat_id}&text={ai_reply_response}")
 
     return data
+    '''
