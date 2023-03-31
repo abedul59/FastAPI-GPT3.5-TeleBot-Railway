@@ -53,6 +53,9 @@ app = FastAPI()
 async def hello():
 	return "Hello World from Flask in a uWSGI Nginx Docker container with \
 	     Python 3.8 (from the example template)"
+
+if __name__ == "__main__":
+	    uvicorn.run("main:app", host="0.0.0.0", port=os.getenv("PORT", default=5000), log_level="info")
 '''  
 @app.post("/callback")
 async def callback(req: Request):
