@@ -51,7 +51,7 @@ async def hello():
 	return "Hello World from Flask in a uWSGI Nginx Docker container with \
 	     Python 3.8 (from the example template)"
     
-@app.post("/callback/")
+@app.post("/callback")
 async def webhook(req: Request):
     data = await req.json()
     chat_id = data['message']['chat']['id']
