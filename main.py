@@ -8,9 +8,9 @@ from fastapi import FastAPI, Request
 TOKEN = str(os.getenv("TELEGRAM_BOT_TOKEN"))
 BASE_URL = f"https://api.telegram.org/bot{TOKEN}"
 
-client = httpx.AsyncClient()
 
-app = FastAPI()
+
+
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
 conversation = []
@@ -44,6 +44,8 @@ class ChatGPT:
         
         return response['choices'][0]['message']['content'].strip()
 
+client = httpx.AsyncClient()
+app = FastAPI()
 chatgpt = ChatGPT()
 
 @app.get("/") # 指定 api 路徑 (get方法)
@@ -52,7 +54,7 @@ async def hello():
 	     Python 3.8 (from the example template)"
     
 @app.post("/callback")
-async def webhook(req: Request):
+async def callback(req: Request):
     data = await req.json()
     chat_id = data['message']['chat']['id']
     text = data['message']['text']
