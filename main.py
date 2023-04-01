@@ -1,6 +1,6 @@
 from fastapi import FastAPI, Request
 from pydantic import BaseModel
-import httpx, os
+import httpx, os, openai
 app = FastAPI()
 
 
