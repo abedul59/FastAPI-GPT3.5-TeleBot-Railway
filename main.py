@@ -1,10 +1,13 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from pydantic import BaseModel
-
+import httpx, os
 app = FastAPI()
 
 
+TOKEN = str(os.getenv("TELEGRAM_BOT_TOKEN"))
+BASE_URL = f"https://api.telegram.org/bot{TOKEN}"
 
+client = httpx.AsyncClient()
 
 
 class Msg(BaseModel):
@@ -29,8 +32,8 @@ async def demo_post(inp: Msg):
 @app.get("/path/{path_id}")
 async def demo_get_path_id(path_id: int):
     return {"message": f"This is /path/{path_id} endpoint, use post request to retrieve result"}
-'''
-@app.post("/webhook/")
+
+@app.post("/webhook")
 async def webhook(req: Request):
     data = await req.json()
     chat_id = data['message']['chat']['id']
@@ -39,4 +42,3 @@ async def webhook(req: Request):
     await client.get(f"{BASE_URL}/sendMessage?chat_id={chat_id}&text={text}")
 
     return data
-    '''
