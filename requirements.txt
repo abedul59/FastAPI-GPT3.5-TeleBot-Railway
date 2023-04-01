@@ -1,4 +1,3 @@
-openai==0.27.0
 httpx
 anyio==3.6.2
 click==8.1.3
