@@ -1,4 +1,4 @@
-openai=0.27.1
+openai==0.27.1
 anyio==3.6.2
 click==8.1.3
 fastapi==0.89.1
