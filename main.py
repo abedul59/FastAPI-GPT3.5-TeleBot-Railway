@@ -33,7 +33,7 @@ async def demo_post(inp: Msg):
 async def demo_get_path_id(path_id: int):
     return {"message": f"This is /path/{path_id} endpoint, use post request to retrieve result"}
 
-@app.post("/webhook")
+@app.post("/callback")
 async def webhook(req: Request):
     data = await req.json()
     chat_id = data['message']['chat']['id']
